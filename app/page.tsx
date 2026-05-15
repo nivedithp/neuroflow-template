@@ -14,6 +14,7 @@ import {
   Globe,
   Activity,
 } from "lucide-react";
+
 import BackgroundEffects from "../components/BackgroundEffects";
 import AnalyticsPreview from "../components/AnalyticsPreview";
 
@@ -63,7 +64,7 @@ export default function HomePage() {
   return (
     <main className="relative overflow-hidden bg-[#050816] text-white">
 
-      {/* Background */}
+      {/* Background Effects */}
       <BackgroundEffects />
 
       {/* Navbar */}
@@ -92,7 +93,7 @@ export default function HomePage() {
 
         </div>
 
-        {/* Nav Buttons */}
+        {/* Navigation */}
         <div className="flex items-center gap-4">
 
           <Link
@@ -106,10 +107,12 @@ export default function HomePage() {
 
           <Link
             href="/dashboard"
-            className="button-shine rounded-2xl bg-yellow-400 px-6 py-3 font-medium text-black transition-all duration-300 hover:scale-[1.02] hover:bg-yellow-300"
+            className="button-shine flex items-center gap-2 rounded-2xl bg-yellow-400 px-6 py-3 font-medium text-black transition-all duration-300 hover:scale-[1.02] hover:bg-yellow-300"
           >
 
             Open Platform
+
+            <ArrowRight className="h-4 w-4" />
 
           </Link>
 
@@ -132,7 +135,7 @@ export default function HomePage() {
           transition={{
             duration: 0.8,
           }}
-          className="max-w-7xl"
+          className="mx-auto max-w-6xl"
         >
 
           {/* Badge */}
@@ -158,7 +161,7 @@ export default function HomePage() {
           </motion.div>
 
           {/* Heading */}
-          <h1 className="hero-title mt-10 text-6xl font-bold leading-tight md:text-8xl xl:text-[9rem]">
+          <h1 className="hero-title mt-10 text-5xl font-bold leading-[0.95] md:text-7xl xl:text-[7rem]">
 
             <Balancer>
               Autonomous AI Infrastructure Platform
@@ -167,7 +170,7 @@ export default function HomePage() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto mt-8 max-w-3xl text-xl leading-relaxed text-zinc-400 md:text-2xl">
+          <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-zinc-400/90 md:text-2xl">
 
             Deploy, scale, monitor, and optimize enterprise-grade AI
             systems across global infrastructure networks with cinematic
@@ -254,7 +257,7 @@ export default function HomePage() {
 
       </section>
 
-      {/* Analytics */}
+      {/* Analytics Preview */}
       <AnalyticsPreview />
 
       {/* Stats */}
