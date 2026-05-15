@@ -161,7 +161,7 @@ export default function HomePage() {
           </motion.div>
 
           {/* Heading */}
-          <h1 className="hero-title mt-10 text-5xl font-bold leading-[0.95] md:text-7xl xl:text-[7rem]">
+          <h1 className="hero-title mt-10 text-4xl font-bold leading-[0.95] md:text-6xl xl:text-[5.8rem]">
 
             <Balancer>
               Autonomous AI Infrastructure Platform
@@ -170,7 +170,7 @@ export default function HomePage() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-zinc-400/90 md:text-2xl">
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-zinc-400/90 md:text-xl">
 
             Deploy, scale, monitor, and optimize enterprise-grade AI
             systems across global infrastructure networks with cinematic
