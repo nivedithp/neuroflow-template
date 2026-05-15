@@ -14,6 +14,8 @@ import {
   Globe,
   Activity,
 } from "lucide-react";
+import BackgroundEffects from "../components/BackgroundEffects";
+import AnalyticsPreview from "../components/AnalyticsPreview";
 
 const features = [
   {
@@ -61,22 +63,8 @@ export default function HomePage() {
   return (
     <main className="relative overflow-hidden bg-[#050816] text-white">
 
-      {/* Glow Effects */}
-      <div className="absolute left-[-120px] top-[-120px] h-[420px] w-[420px] rounded-full bg-yellow-400/10 blur-3xl" />
-
-      <div className="absolute bottom-[-160px] right-[-160px] h-[520px] w-[520px] rounded-full bg-yellow-300/10 blur-3xl" />
-
-      {/* Grid */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)
-          `,
-          backgroundSize: "60px 60px",
-        }}
-      />
+      {/* Background */}
+      <BackgroundEffects />
 
       {/* Navbar */}
       <header className="relative z-10 flex items-center justify-between px-6 py-6 md:px-10">
@@ -84,7 +72,7 @@ export default function HomePage() {
         {/* Logo */}
         <div className="flex items-center gap-4">
 
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03]">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl">
 
             <Sparkles className="h-7 w-7 text-yellow-300" />
 
@@ -104,12 +92,12 @@ export default function HomePage() {
 
         </div>
 
-        {/* Navigation */}
+        {/* Nav Buttons */}
         <div className="flex items-center gap-4">
 
           <Link
             href="/auth"
-            className="rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-3 transition hover:border-yellow-500/20 hover:bg-white/[0.06]"
+            className="rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-3 backdrop-blur-xl transition-all duration-300 hover:border-yellow-500/20 hover:bg-white/[0.06]"
           >
 
             Login
@@ -118,7 +106,7 @@ export default function HomePage() {
 
           <Link
             href="/dashboard"
-            className="rounded-2xl bg-yellow-400 px-6 py-3 font-medium text-black transition hover:bg-yellow-300"
+            className="button-shine rounded-2xl bg-yellow-400 px-6 py-3 font-medium text-black transition-all duration-300 hover:scale-[1.02] hover:bg-yellow-300"
           >
 
             Open Platform
@@ -130,34 +118,47 @@ export default function HomePage() {
       </header>
 
       {/* Hero */}
-      <section className="relative z-10 flex min-h-[90vh] flex-col items-center justify-center px-6 text-center">
+      <section className="relative z-10 flex min-h-[92vh] flex-col items-center justify-center px-6 text-center">
 
         <motion.div
           initial={{
             opacity: 0,
-            y: 30,
+            y: 40,
           }}
           animate={{
             opacity: 1,
             y: 0,
           }}
           transition={{
-            duration: 0.7,
+            duration: 0.8,
           }}
-          className="max-w-6xl"
+          className="max-w-7xl"
         >
 
           {/* Badge */}
-          <div className="mx-auto inline-flex items-center gap-3 rounded-full border border-yellow-500/20 bg-yellow-500/10 px-5 py-2 text-sm text-yellow-200">
+          <motion.div
+            initial={{
+              opacity: 0,
+              scale: 0.9,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+            }}
+            transition={{
+              delay: 0.2,
+            }}
+            className="mx-auto inline-flex items-center gap-3 rounded-full border border-yellow-500/20 bg-yellow-500/10 px-6 py-3 text-sm text-yellow-200 backdrop-blur-xl"
+          >
 
-            <div className="h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_15px_#fde047]" />
+            <div className="h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_#fde047]" />
 
             Enterprise AI Infrastructure
 
-          </div>
+          </motion.div>
 
           {/* Heading */}
-          <h1 className="hero-title mt-10 text-6xl font-bold leading-tight md:text-8xl">
+          <h1 className="hero-title mt-10 text-6xl font-bold leading-tight md:text-8xl xl:text-[9rem]">
 
             <Balancer>
               Autonomous AI Infrastructure Platform
@@ -166,7 +167,7 @@ export default function HomePage() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto mt-8 max-w-3xl text-xl leading-relaxed text-zinc-400">
+          <p className="mx-auto mt-8 max-w-3xl text-xl leading-relaxed text-zinc-400 md:text-2xl">
 
             Deploy, scale, monitor, and optimize enterprise-grade AI
             systems across global infrastructure networks with cinematic
@@ -175,11 +176,11 @@ export default function HomePage() {
           </p>
 
           {/* CTA */}
-          <div className="mt-12 flex flex-col justify-center gap-4 sm:flex-row">
+          <div className="mt-14 flex flex-col justify-center gap-4 sm:flex-row">
 
             <Link
               href="/dashboard"
-              className="flex items-center justify-center gap-3 rounded-2xl bg-yellow-400 px-8 py-5 font-medium text-black transition hover:scale-[1.02] hover:bg-yellow-300"
+              className="button-shine flex items-center justify-center gap-3 rounded-2xl bg-yellow-400 px-10 py-5 font-medium text-black transition-all duration-300 hover:scale-[1.03] hover:bg-yellow-300"
             >
 
               Launch Platform
@@ -190,7 +191,7 @@ export default function HomePage() {
 
             <Link
               href="/analytics"
-              className="rounded-2xl border border-white/10 bg-white/[0.03] px-8 py-5 transition hover:border-yellow-500/20 hover:bg-white/[0.06]"
+              className="rounded-2xl border border-white/10 bg-white/[0.03] px-10 py-5 backdrop-blur-xl transition-all duration-300 hover:border-yellow-500/20 hover:bg-white/[0.06]"
             >
 
               View Analytics
@@ -204,7 +205,7 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="relative z-10 px-6 pb-24 md:px-10">
+      <section className="relative z-10 px-6 pb-28 md:px-10">
 
         <div className="grid gap-6 xl:grid-cols-4">
 
@@ -226,9 +227,10 @@ export default function HomePage() {
                 once: true,
               }}
               whileHover={{
-                y: -6,
+                y: -8,
+                scale: 1.01,
               }}
-              className="rounded-[36px] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-2xl"
+              className="card-hover rounded-[36px] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-2xl"
             >
 
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-yellow-500/10">
@@ -251,6 +253,95 @@ export default function HomePage() {
         </div>
 
       </section>
+
+      {/* Analytics */}
+      <AnalyticsPreview />
+
+      {/* Stats */}
+      <section className="relative z-10 px-6 pb-28 md:px-10">
+
+        <div className="rounded-[48px] border border-white/10 bg-white/[0.03] p-10 backdrop-blur-2xl md:p-16">
+
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+
+            {stats.map((item, index) => (
+              <motion.div
+                key={index}
+                whileHover={{
+                  y: -6,
+                }}
+                className="rounded-[32px] border border-white/10 bg-black/20 p-8"
+              >
+
+                <h3 className="text-5xl font-bold text-yellow-300">
+
+                  {item.value}
+
+                </h3>
+
+                <p className="mt-4 text-zinc-500">
+
+                  {item.label}
+
+                </p>
+
+              </motion.div>
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* Footer */}
+      <footer className="relative z-10 border-t border-white/10 px-6 py-10 md:px-10">
+
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+
+          <div>
+
+            <h3 className="text-2xl font-bold">
+              NeuroFlow
+            </h3>
+
+            <p className="mt-2 text-zinc-500">
+              Enterprise AI Infrastructure Platform
+            </p>
+
+          </div>
+
+          <div className="flex flex-wrap gap-6 text-zinc-500">
+
+            <a href="#" className="transition hover:text-white">
+              Platform
+            </a>
+
+            <a href="#" className="transition hover:text-white">
+              Analytics
+            </a>
+
+            <a href="#" className="transition hover:text-white">
+              Security
+            </a>
+
+            <a href="#" className="transition hover:text-white">
+              Enterprise
+            </a>
+
+            <a href="#" className="transition hover:text-white">
+              Contact
+            </a>
+
+          </div>
+
+          <p className="text-zinc-600">
+            © 2026 NeuroFlow Systems
+          </p>
+
+        </div>
+
+      </footer>
 
     </main>
   );
