@@ -1,9 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 import Balancer from "react-wrap-balancer";
 
 import { motion, AnimatePresence } from "framer-motion";
+
+import {
+  Activity,
+  Shield,
+  Globe,
+  Cpu,
+} from "lucide-react";
 
 import BackgroundEffects from "../../components/BackgroundEffects";
 import PageLoader from "../../components/PageLoader";
@@ -15,27 +23,53 @@ import RevenueChart from "../../components/RevenueChart";
 import DeploymentTable from "../../components/DeploymentTable";
 import AITerminal from "../../components/AITerminal";
 
-import {
-  Activity,
-  Shield,
-  Globe,
-  Cpu,
-} from "lucide-react";
-
 const fadeUp = {
   hidden: {
     opacity: 0,
     y: 30,
   },
+
   visible: (i = 1) => ({
     opacity: 1,
     y: 0,
+
     transition: {
       delay: i * 0.08,
       duration: 0.6,
     },
   }),
 };
+
+const stats = [
+  {
+    icon: Activity,
+    label: "Active Nodes",
+    value: "2.4M+",
+  },
+  {
+    icon: Cpu,
+    label: "AI Throughput",
+    value: "84K/s",
+  },
+  {
+    icon: Globe,
+    label: "Global Regions",
+    value: "18",
+  },
+  {
+    icon: Shield,
+    label: "Security Sync",
+    value: "99.99%",
+  },
+];
+
+const activities = [
+  "Neural synchronization complete",
+  "Distributed AI systems optimized",
+  "Infrastructure scaling stable",
+  "Autonomous telemetry active",
+  "Security verification successful",
+];
 
 export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
@@ -51,9 +85,7 @@ export default function DashboardPage() {
   return (
     <>
       <AnimatePresence>
-
         {loading && <PageLoader />}
-
       </AnimatePresence>
 
       <main className="min-h-screen overflow-hidden bg-[#050816] text-white">
@@ -92,18 +124,16 @@ export default function DashboardPage() {
                   <div>
 
                     <p className="text-sm uppercase tracking-[0.35em] text-yellow-300">
-
                       Operational Overview
-
                     </p>
 
-                  <h1 className="hero-title mt-4 text-5xl font-bold md:text-7xl">
+                    <h1 className="hero-title mt-4 text-5xl font-bold md:text-7xl">
 
-  <Balancer>
-    Enterprise Dashboard
-  </Balancer>
+                      <Balancer>
+                        Enterprise Dashboard
+                      </Balancer>
 
-</h1>
+                    </h1>
 
                   </div>
 
@@ -118,28 +148,7 @@ export default function DashboardPage() {
                 {/* Stats */}
                 <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
 
-                  {[
-                    {
-                      icon: Activity,
-                      label: "Active Nodes",
-                      value: "2.4M+",
-                    },
-                    {
-                      icon: Cpu,
-                      label: "AI Throughput",
-                      value: "84K/s",
-                    },
-                    {
-                      icon: Globe,
-                      label: "Global Regions",
-                      value: "18",
-                    },
-                    {
-                      icon: Shield,
-                      label: "Security Sync",
-                      value: "99.99%",
-                    },
-                  ].map((item, index) => (
+                  {stats.map((item, index) => (
                     <motion.div
                       key={index}
                       custom={index}
@@ -268,13 +277,7 @@ export default function DashboardPage() {
 
                       <div className="space-y-4">
 
-                        {[
-                          "Neural synchronization complete",
-                          "Distributed AI systems optimized",
-                          "Infrastructure scaling stable",
-                          "Autonomous telemetry active",
-                          "Security verification successful",
-                        ].map((item, index) => (
+                        {activities.map((item, index) => (
                           <div
                             key={index}
                             className="rounded-2xl border border-white/5 bg-black/20 px-5 py-4 text-sm text-zinc-300"
@@ -289,94 +292,9 @@ export default function DashboardPage() {
 
                     </div>
 
-                    {/* Security */}
-                    <div className="rounded-[32px] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-2xl">
-
-                      <p className="text-sm text-zinc-500">
-                        Infrastructure Security
-                      </p>
-
-                      <h3 className="mt-2 text-3xl font-bold">
-                        Enterprise Protected
-                      </h3>
-
-                      <div className="relative mx-auto mt-10 flex h-[220px] w-[220px] items-center justify-center rounded-full border border-yellow-500/20">
-
-                        <div className="absolute h-[170px] w-[170px] rounded-full border border-yellow-400/20" />
-
-                        <div className="absolute h-[120px] w-[120px] rounded-full border border-yellow-300/20" />
-
-                        <div className="h-20 w-20 rounded-full bg-yellow-400/10 shadow-[0_0_60px_rgba(245,215,110,0.25)]" />
-
-                        <div className="absolute text-center">
-
-                          <h4 className="text-4xl font-bold">
-                            99%
-                          </h4>
-
-                          <p className="mt-1 text-sm text-zinc-500">
-                            Protected
-                          </p>
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
                   </motion.div>
 
                 </div>
-
-                {/* Deployment Table */}
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  variants={fadeUp}
-                  custom={4}
-                  className="mt-8"
-                >
-
-                  <div className="mb-6">
-
-                    <p className="text-sm text-zinc-500">
-                      Infrastructure Status
-                    </p>
-
-                    <h3 className="mt-2 text-3xl font-bold">
-                      Global Deployment Systems
-                    </h3>
-
-                  </div>
-
-                  <DeploymentTable />
-
-                </motion.div>
-
-                {/* AI Terminal */}
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  variants={fadeUp}
-                  custom={5}
-                  className="mt-8"
-                >
-
-                  <div className="mb-6">
-
-                    <p className="text-sm text-zinc-500">
-                      Autonomous Systems
-                    </p>
-
-                    <h3 className="mt-2 text-3xl font-bold">
-                      Live AI Command Terminal
-                    </h3>
-
-                  </div>
-
-                  <AITerminal />
-
-                </motion.div>
 
               </>
             )}

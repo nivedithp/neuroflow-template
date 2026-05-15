@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+
 import Balancer from "react-wrap-balancer";
 
 import { motion } from "framer-motion";
@@ -13,6 +14,48 @@ import {
   Globe,
   Activity,
 } from "lucide-react";
+
+const features = [
+  {
+    icon: Cpu,
+    title: "AI Compute",
+    desc: "Global neural compute infrastructure with autonomous scaling.",
+  },
+  {
+    icon: Shield,
+    title: "Security Grid",
+    desc: "Enterprise-grade AI protection and predictive threat systems.",
+  },
+  {
+    icon: Globe,
+    title: "Global Network",
+    desc: "Distributed infrastructure across worldwide deployment regions.",
+  },
+  {
+    icon: Activity,
+    title: "Live Monitoring",
+    desc: "Real-time analytics and operational telemetry systems.",
+  },
+];
+
+const stats = [
+  {
+    value: "2.4M+",
+    label: "AI Requests / Min",
+  },
+  {
+    value: "182",
+    label: "Global Regions",
+  },
+  {
+    value: "99.99%",
+    label: "Infrastructure Uptime",
+  },
+  {
+    value: "84K/s",
+    label: "Neural Throughput",
+  },
+];
 
 export default function HomePage() {
   return (
@@ -61,7 +104,7 @@ export default function HomePage() {
 
         </div>
 
-        {/* Right */}
+        {/* Navigation */}
         <div className="flex items-center gap-4">
 
           <Link
@@ -114,19 +157,20 @@ export default function HomePage() {
           </div>
 
           {/* Heading */}
-       <h1 className="hero-title mt-10 text-6xl font-bold leading-tight md:text-8xl">
+          <h1 className="hero-title mt-10 text-6xl font-bold leading-tight md:text-8xl">
 
-  <Balancer>
-    Autonomous AI Infrastructure Platform
-  </Balancer>
+            <Balancer>
+              Autonomous AI Infrastructure Platform
+            </Balancer>
 
-</h1>
+          </h1>
+
           {/* Subtitle */}
           <p className="mx-auto mt-8 max-w-3xl text-xl leading-relaxed text-zinc-400">
 
-            Deploy, scale, monitor, and optimize enterprise-grade
-            AI systems across global infrastructure networks with
-            cinematic operational control.
+            Deploy, scale, monitor, and optimize enterprise-grade AI
+            systems across global infrastructure networks with cinematic
+            operational control.
 
           </p>
 
@@ -164,28 +208,7 @@ export default function HomePage() {
 
         <div className="grid gap-6 xl:grid-cols-4">
 
-          {[
-            {
-              icon: Cpu,
-              title: "AI Compute",
-              desc: "Global neural compute infrastructure with autonomous scaling.",
-            },
-            {
-              icon: Shield,
-              title: "Security Grid",
-              desc: "Enterprise-grade AI protection and predictive threat systems.",
-            },
-            {
-              icon: Globe,
-              title: "Global Network",
-              desc: "Distributed infrastructure across worldwide deployment regions.",
-            },
-            {
-              icon: Activity,
-              title: "Live Monitoring",
-              desc: "Real-time analytics and operational telemetry systems.",
-            },
-          ].map((item, index) => (
+          {features.map((item, index) => (
             <motion.div
               key={index}
               initial={{
@@ -228,146 +251,6 @@ export default function HomePage() {
         </div>
 
       </section>
-
-      {/* Enterprise Trust Section */}
-      <section className="relative z-10 px-6 py-24 md:px-10">
-
-        <div className="rounded-[48px] border border-white/10 bg-white/[0.03] p-10 backdrop-blur-2xl md:p-16">
-
-          <div className="grid gap-12 xl:grid-cols-[1fr_0.8fr]">
-
-            {/* Left */}
-            <div>
-
-              <p className="text-sm uppercase tracking-[0.35em] text-yellow-300">
-
-                Trusted Infrastructure
-
-              </p>
-
-              <h2 className="mt-6 text-5xl font-bold leading-tight md:text-6xl">
-
-                Enterprise AI
-                <br />
-                Infrastructure at Scale
-
-              </h2>
-
-              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-500">
-
-                NeuroFlow powers next-generation AI operations with
-                autonomous infrastructure, predictive monitoring,
-                enterprise-grade security, and globally distributed
-                deployment systems.
-
-              </p>
-
-            </div>
-
-            {/* Right Stats */}
-            <div className="grid gap-6 sm:grid-cols-2">
-
-              {[
-                {
-                  value: "2.4M+",
-                  label: "AI Requests / Min",
-                },
-                {
-                  value: "182",
-                  label: "Global Regions",
-                },
-                {
-                  value: "99.99%",
-                  label: "Infrastructure Uptime",
-                },
-                {
-                  value: "84K/s",
-                  label: "Neural Throughput",
-                },
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="rounded-[32px] border border-white/10 bg-black/20 p-8"
-                >
-
-                  <h3 className="text-5xl font-bold text-yellow-300">
-
-                    {item.value}
-
-                  </h3>
-
-                  <p className="mt-4 text-zinc-500">
-
-                    {item.label}
-
-                  </p>
-
-                </div>
-              ))}
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* Footer */}
-      <footer className="relative z-10 border-t border-white/10 px-6 py-10 md:px-10">
-
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-
-          {/* Left */}
-          <div>
-
-            <h3 className="text-2xl font-bold">
-              NeuroFlow
-            </h3>
-
-            <p className="mt-2 text-zinc-500">
-
-              Enterprise AI Infrastructure Platform
-
-            </p>
-
-          </div>
-
-          {/* Links */}
-          <div className="flex flex-wrap gap-6 text-zinc-500">
-
-            <a href="#" className="transition hover:text-white">
-              Platform
-            </a>
-
-            <a href="#" className="transition hover:text-white">
-              Analytics
-            </a>
-
-            <a href="#" className="transition hover:text-white">
-              Security
-            </a>
-
-            <a href="#" className="transition hover:text-white">
-              Enterprise
-            </a>
-
-            <a href="#" className="transition hover:text-white">
-              Contact
-            </a>
-
-          </div>
-
-          {/* Right */}
-          <p className="text-zinc-600">
-
-            © 2026 NeuroFlow Systems
-
-          </p>
-
-        </div>
-
-      </footer>
 
     </main>
   );
