@@ -176,7 +176,7 @@ export default function HomePage() {
           </p>
 
           {/* CTA */}
-          <div className="mt-14 flex flex-col justify-center gap-4 sm:flex-row">
+          <div className="mt-16 mb-24 flex flex-col justify-center gap-5 sm:flex-row">
 
             <Link
               href="/dashboard"
@@ -205,7 +205,7 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="relative z-10 px-6 pb-28 md:px-10">
+      <section className="relative z-10 px-6 pt-10 pb-28 md:px-10">
 
         <div className="grid gap-6 xl:grid-cols-4">
 
